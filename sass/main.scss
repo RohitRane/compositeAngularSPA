@@ -1,0 +1,27 @@
+@import 'partial';
+.main-div {
+    .header {
+        span {
+            color: red;
+        }
+    }
+    .footer {
+        position: fixed;
+        bottom: 0px;
+        color: green;
+    }
+}
+
+.parent-class{
+	width:50%;
+}
+
+.child-class{
+	@extend .parent-class,.partial-class;
+	color:pink;
+}
+
+.a{
+	color:orange;
+	font-size:12px
+}
