@@ -1,0 +1,112 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'c:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'bootstrap-sass',
+1 verbose cli   '--save' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 warn package.json gulptut@1.0.0 No repository field.
+5 warn package.json gulptut@1.0.0 No README data
+6 verbose readDependencies using package.json deps
+7 verbose cache add [ 'bootstrap-sass', null ]
+8 verbose cache add name=undefined spec="bootstrap-sass" args=["bootstrap-sass",null]
+9 verbose parsed url { protocol: null,
+9 verbose parsed url   slashes: null,
+9 verbose parsed url   auth: null,
+9 verbose parsed url   host: null,
+9 verbose parsed url   port: null,
+9 verbose parsed url   hostname: null,
+9 verbose parsed url   hash: null,
+9 verbose parsed url   search: null,
+9 verbose parsed url   query: null,
+9 verbose parsed url   pathname: 'bootstrap-sass',
+9 verbose parsed url   path: 'bootstrap-sass',
+9 verbose parsed url   href: 'bootstrap-sass' }
+10 silly lockFile f194078e-bootstrap-sass bootstrap-sass
+11 verbose lock bootstrap-sass C:\Users\dell\AppData\Roaming\npm-cache\f194078e-bootstrap-sass.lock
+12 silly lockFile f194078e-bootstrap-sass bootstrap-sass
+13 silly lockFile f194078e-bootstrap-sass bootstrap-sass
+14 verbose addNamed [ 'bootstrap-sass', '' ]
+15 verbose addNamed [ null, '*' ]
+16 silly lockFile b3adb283-bootstrap-sass bootstrap-sass@
+17 verbose lock bootstrap-sass@ C:\Users\dell\AppData\Roaming\npm-cache\b3adb283-bootstrap-sass.lock
+18 silly addNameRange { name: 'bootstrap-sass', range: '*', hasData: false }
+19 verbose request where is /bootstrap-sass
+20 verbose request registry https://registry.npmjs.org/
+21 verbose request id 439812803d38fe62
+22 verbose url raw /bootstrap-sass
+23 verbose url resolving [ 'https://registry.npmjs.org/', './bootstrap-sass' ]
+24 verbose url resolved https://registry.npmjs.org/bootstrap-sass
+25 verbose request where is https://registry.npmjs.org/bootstrap-sass
+26 info trying registry request attempt 1 at 20:03:40
+27 verbose etag "F3OCXC3T0KSAJN2K6NM8D4ORQ"
+28 http GET https://registry.npmjs.org/bootstrap-sass
+29 http 304 https://registry.npmjs.org/bootstrap-sass
+30 silly registry.get cb [ 304,
+30 silly registry.get   { date: 'Fri, 25 Dec 2015 14:33:29 GMT',
+30 silly registry.get     via: '1.1 varnish',
+30 silly registry.get     'cache-control': 'max-age=300',
+30 silly registry.get     etag: '"F3OCXC3T0KSAJN2K6NM8D4ORQ"',
+30 silly registry.get     age: '0',
+30 silly registry.get     connection: 'keep-alive',
+30 silly registry.get     'x-served-by': 'cache-sin6925-SIN',
+30 silly registry.get     'x-cache': 'HIT',
+30 silly registry.get     'x-cache-hits': '1',
+30 silly registry.get     'x-timer': 'S1451054009.813341,VS0,VE1253',
+30 silly registry.get     vary: 'Accept' } ]
+31 verbose etag https://registry.npmjs.org/bootstrap-sass from cache
+32 silly addNameRange number 2 { name: 'bootstrap-sass', range: '*', hasData: true }
+33 silly addNameRange versions [ 'bootstrap-sass',
+33 silly addNameRange   [ '2.3.2',
+33 silly addNameRange     '3.1.1',
+33 silly addNameRange     '3.2.0',
+33 silly addNameRange     '3.3.0',
+33 silly addNameRange     '3.3.1',
+33 silly addNameRange     '3.3.2',
+33 silly addNameRange     '3.3.3',
+33 silly addNameRange     '3.3.4',
+33 silly addNameRange     '3.3.5',
+33 silly addNameRange     '3.3.6' ] ]
+34 verbose addNamed [ 'bootstrap-sass', '3.3.6' ]
+35 verbose addNamed [ '3.3.6', '3.3.6' ]
+36 silly lockFile 7ab5ab6a-bootstrap-sass-3-3-6 bootstrap-sass@3.3.6
+37 verbose lock bootstrap-sass@3.3.6 C:\Users\dell\AppData\Roaming\npm-cache\7ab5ab6a-bootstrap-sass-3-3-6.lock
+38 silly lockFile ac6b4156-ap-sass-bootstrap-sass-3-3-6-tgz https://registry.npmjs.org/bootstrap-sass/-/bootstrap-sass-3.3.6.tgz
+39 verbose lock https://registry.npmjs.org/bootstrap-sass/-/bootstrap-sass-3.3.6.tgz C:\Users\dell\AppData\Roaming\npm-cache\ac6b4156-ap-sass-bootstrap-sass-3-3-6-tgz.lock
+40 verbose addRemoteTarball [ 'https://registry.npmjs.org/bootstrap-sass/-/bootstrap-sass-3.3.6.tgz',
+40 verbose addRemoteTarball   '363b0d300e868d3e70134c1a742bb17288444fd1' ]
+41 info retry fetch attempt 1 at 20:03:42
+42 verbose fetch to= C:\Users\dell\AppData\Local\Temp\npm-7936-kigPXW0X\registry.npmjs.org\bootstrap-sass\-\bootstrap-sass-3.3.6.tgz
+43 http GET https://registry.npmjs.org/bootstrap-sass/-/bootstrap-sass-3.3.6.tgz
+44 http 200 https://registry.npmjs.org/bootstrap-sass/-/bootstrap-sass-3.3.6.tgz
+45 error fetch failed https://registry.npmjs.org/bootstrap-sass/-/bootstrap-sass-3.3.6.tgz
+46 info retry will retry, error on last attempt: Error: ENOSPC, write
+47 info retry fetch attempt 2 at 20:03:54
+48 verbose fetch to= C:\Users\dell\AppData\Local\Temp\npm-7936-kigPXW0X\registry.npmjs.org\bootstrap-sass\-\bootstrap-sass-3.3.6.tgz
+49 http GET https://registry.npmjs.org/bootstrap-sass/-/bootstrap-sass-3.3.6.tgz
+50 http 200 https://registry.npmjs.org/bootstrap-sass/-/bootstrap-sass-3.3.6.tgz
+51 error fetch failed https://registry.npmjs.org/bootstrap-sass/-/bootstrap-sass-3.3.6.tgz
+52 info retry will retry, error on last attempt: Error: ENOSPC, write
+53 info retry fetch attempt 3 at 20:04:55
+54 verbose fetch to= C:\Users\dell\AppData\Local\Temp\npm-7936-kigPXW0X\registry.npmjs.org\bootstrap-sass\-\bootstrap-sass-3.3.6.tgz
+55 http GET https://registry.npmjs.org/bootstrap-sass/-/bootstrap-sass-3.3.6.tgz
+56 http 200 https://registry.npmjs.org/bootstrap-sass/-/bootstrap-sass-3.3.6.tgz
+57 error fetch failed https://registry.npmjs.org/bootstrap-sass/-/bootstrap-sass-3.3.6.tgz
+58 silly lockFile ac6b4156-ap-sass-bootstrap-sass-3-3-6-tgz https://registry.npmjs.org/bootstrap-sass/-/bootstrap-sass-3.3.6.tgz
+59 silly lockFile ac6b4156-ap-sass-bootstrap-sass-3-3-6-tgz https://registry.npmjs.org/bootstrap-sass/-/bootstrap-sass-3.3.6.tgz
+60 silly lockFile 7ab5ab6a-bootstrap-sass-3-3-6 bootstrap-sass@3.3.6
+61 silly lockFile 7ab5ab6a-bootstrap-sass-3-3-6 bootstrap-sass@3.3.6
+62 silly lockFile b3adb283-bootstrap-sass bootstrap-sass@
+63 silly lockFile b3adb283-bootstrap-sass bootstrap-sass@
+64 error nospc ENOSPC, write
+64 error nospc This is most likely not a problem with npm itself
+64 error nospc and is related to insufficient space on your system.
+65 error System Windows_NT 6.1.7600
+66 error command "c:\\Program Files\\nodejs\\node.exe" "c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "bootstrap-sass" "--save"
+67 error cwd d:\Technology\compositeSPA
+68 error node -v v0.10.33
+69 error npm -v 1.4.28
+70 error code ENOSPC
+71 error errno 54
+72 verbose exit [ 54, true ]

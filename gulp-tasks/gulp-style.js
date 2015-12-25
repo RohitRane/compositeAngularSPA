@@ -3,11 +3,13 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     minifyCss = require('gulp-minify-css'),
     plumber = require('gulp-plumber'),
+    flatten = require('gulp-flatten'),
     config = require('../config');
 
 //Styles Watch
 gulp.task('styles:watch', ['styles-tasks'], function() {
-    gulp.watch('sass/*.scss', ['styles-tasks']);
+    //gulp.watch('sass/*.scss', ['styles-tasks']);
+    gulp.watch('app/client/pages/**/core/*.scss', ['styles-tasks']);
 });
 
 /*Styles Tasks*/
@@ -16,8 +18,8 @@ gulp.task('styles-tasks', ['sass-compile', 'minify-css']);
 
 
 gulp.task('minify-css', function() {
-    gulp.watch('dist/css/*.css', function() {
-        gulp.src('dist/css/*.css')
+    gulp.watch(config.publicRoot+'/dist/css/*.css', function() {
+        gulp.src(config.publicRoot+'/dist/css/*.css')
             .pipe(plumber())
             .pipe(minifyCss())
             .pipe(rename({
@@ -28,8 +30,9 @@ gulp.task('minify-css', function() {
 });
 
 gulp.task('sass-compile', function() {
-    gulp.src('sass/*.scss')
+    gulp.src('app/client/pages/**/core/*.scss')
         .pipe(plumber())
         .pipe(sass.sync().on('error', sass.logError))
+        .pipe(flatten())
         .pipe(gulp.dest(config.publicRoot+'/dist/css'));
 });

@@ -1,0 +1,3 @@
+#Files to be ignored by git while tracking
+node_modules
+node_modules/*

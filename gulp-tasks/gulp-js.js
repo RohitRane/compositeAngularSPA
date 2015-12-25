@@ -2,13 +2,16 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     uglify = require('gulp-uglify'),
     plumber = require('gulp-plumber'),
-    livereload = require('gulp-livereload')
+    livereload = require('gulp-livereload'),
+    browserify = require('gulp-browserify'),
+    flatten = require('gulp-flatten'),
     config = require('../config');
 
 //JS Watch
-gulp.task('js:watch', ['js-tasks'], function() {
+gulp.task('js:watch', ['js-tasks','browserify'], function() {
 	var server = livereload();
     gulp.watch('js/*.js', ['js-tasks']);
+    gulp.watch('app/client/pages/**/core/*.js', ['browserify']);
 });
 
 /*JS Tasks*/
@@ -25,4 +28,15 @@ gulp.task('minify-js', function() {
         }))
         .pipe(gulp.dest(config.publicRoot+'/dist/js'))
         .pipe(livereload());
+});
+
+gulp.task('browserify', function() {
+	// Single entry point to browserify
+	gulp.src('app/client/pages/**/core/*.js')
+		.pipe(browserify({
+		  insertGlobals : true,
+		  debug : !gulp.env.production
+		}))
+    .pipe(flatten())
+		.pipe(gulp.dest(config.publicRoot+'/dist/js/angularApps'));
 });
