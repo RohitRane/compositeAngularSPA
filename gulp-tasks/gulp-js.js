@@ -33,6 +33,7 @@ gulp.task('minify-js', function() {
 gulp.task('browserify', function() {
 	// Single entry point to browserify
 	gulp.src('app/client/pages/**/core/*.js')
+        .pipe(plumber())
 		.pipe(browserify({
 		  insertGlobals : true,
 		  debug : !gulp.env.production
