@@ -46,7 +46,7 @@ gulp.task('minify-angular', function() {
 
 gulp.task('browserify', function() {
     // Single entry point to browserify
-    gulp.src('app/client/pages/*/*.js')
+    gulp.src(['app/client/pages/*/*.js','!app/client/pages/*/*.config.js'])
         .pipe(plumber())
         .pipe(browserify({
             insertGlobals: true,
