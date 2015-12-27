@@ -5819,4 +5819,25 @@ button.close {
 
 @media (min-width: 768px) {
   .navbar {
-    border-radius: 0px; } }
+    border-radius: 0px;
+    color: red; } }
+
+.page-footer {
+  /*position:fixed;
+	bottom:0px;*/
+  margin-bottom: 0px;
+  padding: 30px;
+  width: 100%;
+  background-color: grey;
+  min-height: 150px;
+  height: 100%; }
+
+html,
+body {
+  height: 100%; }
+
+.footer-container {
+  max-height: 100%; }
+
+.page-content {
+  min-height: 66.8%; }

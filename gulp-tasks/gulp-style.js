@@ -9,7 +9,7 @@ var gulp = require('gulp'),
 //Styles Watch
 gulp.task('styles:watch', ['styles-tasks'], function() {
     //gulp.watch('sass/*.scss', ['styles-tasks']);
-    gulp.watch('app/client/pages/**/core/*.scss', ['styles-tasks']);
+    gulp.watch('app/client/pages/**/*.scss', ['styles-tasks']);
 });
 
 /*Styles Tasks*/
@@ -30,7 +30,7 @@ gulp.task('minify-css', function() {
 });
 
 gulp.task('sass-compile', function() {
-    gulp.src('app/client/pages/**/core/*.scss')
+    gulp.src('app/client/pages/**/*.scss')
         .pipe(plumber())
         .pipe(sass.sync().on('error', sass.logError))
         .pipe(flatten())

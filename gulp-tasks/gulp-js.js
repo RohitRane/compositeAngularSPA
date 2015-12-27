@@ -8,10 +8,12 @@ var gulp = require('gulp'),
     config = require('../config');
 
 //JS Watch
-gulp.task('js:watch', ['js-tasks','browserify'], function() {
-	var server = livereload();
+gulp.task('js:watch', ['js-tasks', 'browserify', 'minify-angular'], function() {
+    var server = livereload();
     gulp.watch('js/*.js', ['js-tasks']);
-    gulp.watch('app/client/pages/**/core/*.js', ['browserify']);
+    gulp.watch(config.publicRoot + '/dist/js/angularApps/*.js', ['minify-angular']);
+    gulp.watch('app/client/pages/**/*.js', ['browserify']);
+    //gulp.watch('app/client/pages/**/*.js', ['browserify']);
 });
 
 /*JS Tasks*/
@@ -26,18 +28,30 @@ gulp.task('minify-js', function() {
         .pipe(rename({
             extname: '.min.js'
         }))
-        .pipe(gulp.dest(config.publicRoot+'/dist/js'))
+        .pipe(gulp.dest(config.publicRoot + '/dist/js'))
+        .pipe(livereload());
+});
+
+//Minify Angular
+gulp.task('minify-angular', function() {
+    gulp.src(config.publicRoot + '/dist/js/angularApps/*.js')
+        .pipe(plumber())
+        .pipe(uglify())
+        .pipe(rename({
+            extname: '.min.js'
+        }))
+        .pipe(gulp.dest(config.publicRoot + '/dist/js/angularApps/min'))
         .pipe(livereload());
 });
 
 gulp.task('browserify', function() {
-	// Single entry point to browserify
-	gulp.src('app/client/pages/**/core/*.js')
+    // Single entry point to browserify
+    gulp.src('app/client/pages/*/*.js')
         .pipe(plumber())
-		.pipe(browserify({
-		  insertGlobals : true,
-		  debug : !gulp.env.production
-		}))
-    .pipe(flatten())
-		.pipe(gulp.dest(config.publicRoot+'/dist/js/angularApps'));
+        .pipe(browserify({
+            insertGlobals: true,
+            debug: !gulp.env.production
+        }))
+        .pipe(flatten())
+        .pipe(gulp.dest(config.publicRoot + '/dist/js/angularApps'));
 });

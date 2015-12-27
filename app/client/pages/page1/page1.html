@@ -1,0 +1,19 @@
+<!Doctype html>
+
+<head>
+    <title>Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="public/dist/js/angularApps/min/page1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="public/dist/css/page1.css">
+</head>
+
+<body ng-app="pageApp">
+    <div ng-include="'/page1/header'">
+    </div>
+    <div class="page-content" ui-view></div>
+    <!-- <h1>Hello World</h1> -->
+    <!-- <img src="public/images/img1.png" alt="noImage"></img> -->
+    <div ng-include="'/page1/footer'" class="footer-container"></div>
+</body>
+
+</html>

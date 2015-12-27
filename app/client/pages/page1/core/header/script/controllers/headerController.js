@@ -1,7 +1,7 @@
-//var pageApp = angular.module('pageApp');
+"use strict";
 
-module.exports = angular.module('pageApp').controller('headerController',['$scope',headerController]);
+module.exports = angular.module('pageApp').controller('headerController', ['$scope', headerController]);
 
-function headerController($scope){
-  $scope.navbarCollapsed = true;
+function headerController($scope) {
+    $scope.navbarCollapsed = true;
 }

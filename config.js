@@ -2,7 +2,7 @@ var config = {};
 
 config.publicRoot = './public';
 
-config.domainRoot = '/app/client/pages/page1/core';
+config.domainRoot = '/app/client/pages/page1';
 
 config.pagesRoot = './app/client/pages';
 

@@ -16,6 +16,9 @@ app.get('/page1/header', function(req, res) {
     res.sendFile(__dirname+'/app/client/pages/page1/core/header/markup/header.html');
 });
 
+app.get('/page1/footer', function(req, res) {
+    res.sendFile(__dirname+'/app/client/pages/page1/core/footer/markup/footer.html');
+});
 
 var server = app.listen(3000, function() {
 	var address = server.address();
