@@ -1,6 +1,7 @@
 @import '../../../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap-custom.scss';
 @import './core/header/style/_header.scss';
 @import './core/footer/style/_footer.scss';
+@import './views/home/style/_home.scss';
 html,
 body {
     height: 100%
@@ -11,5 +12,5 @@ body {
 }
 
 .page-content {
-    min-height: 66.8%;
+    min-height: 66.7%;
 }

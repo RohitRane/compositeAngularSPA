@@ -5,14 +5,18 @@ var gulp = require('gulp'),
     livereload = require('gulp-livereload'),
     browserify = require('gulp-browserify'),
     flatten = require('gulp-flatten'),
+    templateCache = require('gulp-angular-templatecache'),
+    beautify = require('gulp-beautify'),
     config = require('../config');
 
 //JS Watch
-gulp.task('js:watch', ['js-tasks', 'browserify', 'minify-angular'], function() {
+gulp.task('js:watch', ['js-tasks', 'browserify', 'minify-angular', 'gen-templateCache'], function() {
     var server = livereload();
     gulp.watch('js/*.js', ['js-tasks']);
     gulp.watch(config.publicRoot + '/dist/js/angularApps/*.js', ['minify-angular']);
     gulp.watch('app/client/pages/**/*.js', ['browserify']);
+    //gulp.watch('app/client/pages/page1/views/about/markup/about.html', ['gen-templateCache']);
+    gulp.watch('app/client/pages/**/views/**/markup/*.html', ['gen-templateCache']);
     //gulp.watch('app/client/pages/**/*.js', ['browserify']);
 });
 
@@ -46,7 +50,7 @@ gulp.task('minify-angular', function() {
 
 gulp.task('browserify', function() {
     // Single entry point to browserify
-    gulp.src(['app/client/pages/*/*.js','!app/client/pages/*/*.config.js'])
+    gulp.src(['app/client/pages/*/*.js', '!app/client/pages/*/*.config.js'])
         .pipe(plumber())
         .pipe(browserify({
             insertGlobals: true,
@@ -54,4 +58,29 @@ gulp.task('browserify', function() {
         }))
         .pipe(flatten())
         .pipe(gulp.dest(config.publicRoot + '/dist/js/angularApps'));
+});
+
+gulp.task('gen-templateCache', function() {
+    var destination = '';
+    return gulp.src('app/client/pages/**/views/**/markup/*.html')
+        .pipe(templateCache('partials.js', {
+            module: 'pageApp',
+            transformUrl: function(url) {
+                //console.log("\nURL :",url);
+                var ind = url.lastIndexOf('\\');
+                //console.log("Index :",ind);
+                var partialName = url.substring(ind + 1);
+                console.log("FileName : ", partialName);
+                var viewsIndex = url.indexOf('\\views\\');
+                var viewsPath = url.substring(0, viewsIndex + 7);
+                console.log("Views Path :", viewsPath);
+                destination = "./app/client/pages/" + viewsPath;
+                return partialName;
+            },
+            moduleSystem: 'Browserify'
+        }))
+        .pipe(beautify({indentSize: 4}))
+        .pipe(gulp.dest(function() {
+            return destination;
+        }));
 });

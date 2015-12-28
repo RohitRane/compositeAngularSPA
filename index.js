@@ -20,6 +20,14 @@ app.get('/page1/footer', function(req, res) {
     res.sendFile(__dirname+'/app/client/pages/page1/core/footer/markup/footer.html');
 });
 
+app.get('/page1/home', function(req, res) {
+    res.sendFile(__dirname+'/app/client/pages/page1/views/home/markup/home.html');
+});
+
+app.get('/page1/about', function(req, res) {
+    res.sendFile(__dirname+'/app/client/pages/page1/views/about/markup/about.html');
+});
+
 var server = app.listen(3000, function() {
 	var address = server.address();
     var host = server.address().address;
