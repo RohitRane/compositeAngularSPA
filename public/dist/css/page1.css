@@ -5832,6 +5832,10 @@ button.close {
   min-height: 150px;
   height: 100%; }
 
+.home-img {
+  display: inline;
+  margin-bottom: 20px; }
+
 html,
 body {
   height: 100%; }

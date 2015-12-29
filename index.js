@@ -12,7 +12,7 @@ app.get('/', function(req, res) {
     res.sendFile(domainRoot+config.pageName);
 });
 
-app.get('/page1/header', function(req, res) {
+/*app.get('/page1/header', function(req, res) {
     res.sendFile(__dirname+'/app/client/pages/page1/core/header/markup/header.html');
 });
 
@@ -26,7 +26,7 @@ app.get('/page1/home', function(req, res) {
 
 app.get('/page1/about', function(req, res) {
     res.sendFile(__dirname+'/app/client/pages/page1/views/about/markup/about.html');
-});
+});*/
 
 var server = app.listen(3000, function() {
 	var address = server.address();

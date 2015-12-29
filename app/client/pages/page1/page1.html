@@ -9,12 +9,10 @@
 </head>
 
 <body ng-app="pageApp" ng-cloak>
-    <div ng-include="'/page1/header'">
+    <div ui-view="header">
     </div>
-    <div class="page-content" ui-view></div>
-    <!-- <h1>Hello World</h1> -->
-    <!-- <img src="public/images/img1.png" alt="noImage"></img> -->
-    <div ng-include="'/page1/footer'" class="footer-container"></div>
+    <div class="page-content" ui-view="content"></div>
+    <div ui-view="footer" class="footer-container"></div>
 </body>
 
 </html>

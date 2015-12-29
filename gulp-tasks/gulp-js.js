@@ -16,7 +16,7 @@ gulp.task('js:watch', ['js-tasks', 'browserify', 'minify-angular', 'gen-template
     gulp.watch(config.publicRoot + '/dist/js/angularApps/*.js', ['minify-angular']);
     gulp.watch('app/client/pages/**/*.js', ['browserify']);
     //gulp.watch('app/client/pages/page1/views/about/markup/about.html', ['gen-templateCache']);
-    gulp.watch('app/client/pages/**/views/**/markup/*.html', ['gen-templateCache']);
+    gulp.watch(['app/client/pages/**/views/**/markup/*.html','app/client/pages/**/core/**/markup/*.html'], ['gen-templateCache']);
     //gulp.watch('app/client/pages/**/*.js', ['browserify']);
 });
 
@@ -50,7 +50,7 @@ gulp.task('minify-angular', function() {
 
 gulp.task('browserify', function() {
     // Single entry point to browserify
-    gulp.src(['app/client/pages/*/*.js', '!app/client/pages/*/*.config.js'])
+    gulp.src(['app/client/pages/**/*.js', '!app/client/pages/**/*.config.js','!app/client/pages/**/partials.js'])
         .pipe(plumber())
         .pipe(browserify({
             insertGlobals: true,
@@ -62,19 +62,20 @@ gulp.task('browserify', function() {
 
 gulp.task('gen-templateCache', function() {
     var destination = '';
-    return gulp.src('app/client/pages/**/views/**/markup/*.html')
+    return gulp.src(['app/client/pages/**/views/**/markup/*.html','app/client/pages/**/core/**/markup/*.html'])
         .pipe(templateCache('partials.js', {
             module: 'pageApp',
             transformUrl: function(url) {
-                //console.log("\nURL :",url);
+                console.log("\nURL :",url);
                 var ind = url.lastIndexOf('\\');
                 //console.log("Index :",ind);
                 var partialName = url.substring(ind + 1);
                 console.log("FileName : ", partialName);
-                var viewsIndex = url.indexOf('\\views\\');
-                var viewsPath = url.substring(0, viewsIndex + 7);
+                var viewsIndex = url.indexOf('\\');
+                var viewsPath = url.substring(0, viewsIndex);
                 console.log("Views Path :", viewsPath);
                 destination = "./app/client/pages/" + viewsPath;
+                console.log("Destination Path :",destination);
                 return partialName;
             },
             moduleSystem: 'Browserify'
