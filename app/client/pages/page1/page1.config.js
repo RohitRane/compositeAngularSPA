@@ -9,21 +9,29 @@ function AppConfig($stateProvider, $urlRouterProvider) {
     //Default view
     $urlRouterProvider.otherwise('/');
 
+    //Root view
+    $stateProvider
+        .state('root', {
+            url: '',
+            views: {
+                'header@root': {
+                    templateUrl: 'header.html',
+                    controller: 'headerController'
+                },
+                'footer@root': {
+                    templateUrl: 'footer.html',
+                    controller: 'footerController'
+                }
+            }
+        })
+
     //Home View
-    $stateProvider.state('home', {
+    $stateProvider.state('root.home', {
         url: '/',
         views: {
-            'header': {
-                templateUrl: 'header.html',
-                controller: 'headerController'
-            },
             'content': {
                 templateUrl: 'home.html',
                 controller: 'homeController'
-            },
-            'footer': {
-                templateUrl: 'footer.html',
-                controller: 'footerController'
             }
         }
 
@@ -31,39 +39,23 @@ function AppConfig($stateProvider, $urlRouterProvider) {
     });
 
     //About View
-    $stateProvider.state('about', {
+    $stateProvider.state('root.about', {
         url: '/about',
         views: {
-            'header': {
-                templateUrl: 'header.html',
-                controller: 'headerController'
-            },
             'content': {
                 templateUrl: 'about.html',
                 controller: 'aboutController'
-            },
-            'footer': {
-                templateUrl: 'footer.html',
-                controller: 'footerController'
             }
         }
     });
 
     //Watch View
-    $stateProvider.state('watch', {
+    $stateProvider.state('root.watch', {
         url: '/watch',
         views: {
-            'header': {
-                templateUrl: 'header.html',
-                controller: 'headerController'
-            },
             'content': {
                 templateUrl: 'watch.html',
                 controller: 'watchController'
-            },
-            'footer': {
-                templateUrl: 'footer.html',
-                controller: 'footerController'
             }
         }
     });

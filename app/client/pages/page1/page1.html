@@ -9,10 +9,10 @@
 </head>
 
 <body ng-app="pageApp" ng-cloak>
-    <div ui-view="header">
+    <div ui-view="header@root">
     </div>
-    <div class="page-content" ui-view="content"></div>
-    <div ui-view="footer" class="footer-container"></div>
+    <div class="page-content" ui-view="content@root"></div>
+    <div ui-view="footer@root" class="footer-container"></div>
 </body>
 
 </html>
