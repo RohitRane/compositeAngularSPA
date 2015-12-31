@@ -12,7 +12,7 @@ function AppConfig($stateProvider, $urlRouterProvider) {
     //Root view
     $stateProvider
         .state('root', {
-            url: '',
+            /*url: '',*/
             views: {
                 'header@root': {
                     templateUrl: 'header.html',

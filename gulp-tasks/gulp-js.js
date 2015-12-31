@@ -66,16 +66,16 @@ gulp.task('gen-templateCache', function() {
         .pipe(templateCache('partials.js', {
             module: 'pageApp',
             transformUrl: function(url) {
-                console.log("\nURL :",url);
+                //console.log("\nURL :",url);
                 var ind = url.lastIndexOf('\\');
                 //console.log("Index :",ind);
                 var partialName = url.substring(ind + 1);
-                console.log("FileName : ", partialName);
+                //console.log("FileName : ", partialName);
                 var viewsIndex = url.indexOf('\\');
                 var viewsPath = url.substring(0, viewsIndex);
-                console.log("Views Path :", viewsPath);
+                //console.log("Views Path :", viewsPath);
                 destination = "./app/client/pages/" + viewsPath;
-                console.log("Destination Path :",destination);
+                //console.log("Destination Path :",destination);
                 return partialName;
             },
             moduleSystem: 'Browserify'

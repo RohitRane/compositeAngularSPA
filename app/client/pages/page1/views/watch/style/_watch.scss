@@ -1,0 +1,14 @@
+.video-container {
+    margin: auto;
+    max-width: 720px !important;
+    $width: 100%;
+    width: $width;
+    padding-bottom: ($width * 0.30);
+    max-height:($width * 0.56);
+}
+
+.video-frame {
+    width: 100%;
+    max-width: 720px !important;
+    max-height: 405px !important;
+}
