@@ -6,27 +6,17 @@ app.use(config.public,express.static(config.publicRoot));
 
 app.use(config.pages,express.static(config.pagesRoot));
 
-var domainRoot = __dirname +config.domainRoot;
+var pagesRoot = __dirname +config.pagesRoot;
 
 app.get('/', function(req, res) {
-    res.sendFile(domainRoot+config.pageName);
+	var page = pagesRoot + '/'+config.homePage+'/'+config.homePage+'.html';
+    res.sendFile(page);
 });
 
-/*app.get('/page1/header', function(req, res) {
-    res.sendFile(__dirname+'/app/client/pages/page1/core/header/markup/header.html');
+app.get('/me', function(req, res) {
+	var page = pagesRoot + '/'+config.myInfoPage+'/'+config.myInfoPage+'.html';
+    res.sendFile(page);
 });
-
-app.get('/page1/footer', function(req, res) {
-    res.sendFile(__dirname+'/app/client/pages/page1/core/footer/markup/footer.html');
-});
-
-app.get('/page1/home', function(req, res) {
-    res.sendFile(__dirname+'/app/client/pages/page1/views/home/markup/home.html');
-});
-
-app.get('/page1/about', function(req, res) {
-    res.sendFile(__dirname+'/app/client/pages/page1/views/about/markup/about.html');
-});*/
 
 var server = app.listen(3000, function() {
 	var address = server.address();

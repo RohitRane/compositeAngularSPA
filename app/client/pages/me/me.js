@@ -12,8 +12,8 @@ var dependencies = [
 var pageApp = angular.module('pageApp', dependencies);
 
 //Require all the Config, Run, Controllers, Services and Directives of the app.
-require('./page1.config.js');
-require('./page1.partials.js');
+require('./me.config.js');
+require('./me.partials.js');
 //Require the header and footer controllers
 require('./core/header/script/controllers/headerController.js');
 require('./core/footer/script/controllers/footerController.js');
