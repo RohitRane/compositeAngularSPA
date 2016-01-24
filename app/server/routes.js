@@ -4,9 +4,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var config = require('../../config');
 var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-var mongoose = require('mongoose');
-var Models = require('./models/index');
+
+var Controllers = require('./controllers/index');
 
 module.exports = function(app) {
 
@@ -26,7 +25,7 @@ module.exports = function(app) {
 
     var pagesRoot = GLOBAL.projectDir + config.pagesRoot;
 
-    //Define your routes here.
+    //Define your page routes here.
     app.get('/', function(req, res) {
         var page = pagesRoot + '/' + config.homePage + '/' + config.homePage + '.html';
         res.sendFile(page);
@@ -37,66 +36,7 @@ module.exports = function(app) {
         res.sendFile(page);
     });
 
-
-    app.post('/login',
-        passport.authenticate('local'),
-        function(req, res) {
-            var resMsg = {
-                status:"success",
-                user:req.user
-            }
-            res.json(resMsg);
-        }
-    );
-
-    app.get('/loginFailure', function(req, res, next) {
-        console.log("Fail");
-        res.send('Failed to authenticate');
-    });
-
-    app.get('/loginSuccess', function(req, res, next) {
-        res.send('Successfully authenticated');
-    });
-
-    passport.serializeUser(function(user, done) {
-        done(null, user);
-    });
-
-    passport.deserializeUser(function(user, done) {
-        done(null, user);
-    });
-
-/*    mongoose.connect('mongodb://localhost:27017/compositeSPAdb');
-
-    var Schema = mongoose.Schema;
-    var UserDetail = new Schema({
-        username: String,
-        password: String
-    }, {
-        collection: 'userInfo'
-    });
-    var UserDetails = mongoose.model('userInfo', UserDetail);*/
-
-    passport.use(new LocalStrategy(function(username, password, done) {
-        process.nextTick(function() {
-            Models.UserDetails.findOne({
-                'username': username,
-            }, function(err, user) {
-                if (err) {
-                    return done(err);
-                }
-
-                if (!user) {
-                    return done(null, false);
-                }
-
-                if (user.password != password) {
-                    return done(null, false);
-                }
-
-                return done(null, user);
-            });
-        });
-    }));
+    //Define your API routes here.
+    app.post('/login', Controllers.userDetailController.validateLocalUser);
 
 }
