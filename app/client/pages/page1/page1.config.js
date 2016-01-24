@@ -21,6 +21,10 @@ function AppConfig($stateProvider, $urlRouterProvider) {
                 'footer@root': {
                     templateUrl: 'footer.html',
                     controller: 'footerController'
+                },
+                'login@root':{
+                    templateUrl: 'login.html',
+                    controller: 'loginController'
                 }
             }
         })
@@ -56,6 +60,17 @@ function AppConfig($stateProvider, $urlRouterProvider) {
             'content': {
                 templateUrl: 'watch.html',
                 controller: 'watchController'
+            }
+        }
+    });
+
+    //Login View
+    $stateProvider.state('root.login', {
+        url: '/login',
+        views: {
+            'content': {
+                templateUrl: 'login.html',
+                controller: 'loginController'
             }
         }
     });

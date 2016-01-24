@@ -17,7 +17,9 @@ require('./me.partials.js');
 //Require the header and footer controllers
 require('./core/header/script/controllers/headerController.js');
 require('./core/footer/script/controllers/footerController.js');
-//Require the view controllers
+//Require the page related view controllers
 require('./views/home/script/controllers/homeController.js');
 require('./views/about/script/controllers/aboutController.js');
 require('./views/watch/script/controllers/watchController.js');
+//Require the global view controllers,directives and services.
+require('./../../global/views/login/script/controllers/loginController.js');

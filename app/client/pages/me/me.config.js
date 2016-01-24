@@ -59,5 +59,17 @@ function AppConfig($stateProvider, $urlRouterProvider) {
             }
         }
     });
+    
+    //Login View
+    $stateProvider.state('root.login', {
+        url: '/login',
+        views: {
+            'content': {
+                templateUrl: 'login.html',
+                controller: 'loginController'
+            }
+        }
+    });
+
 
 }

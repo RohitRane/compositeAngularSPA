@@ -14,10 +14,12 @@ var pageApp = angular.module('pageApp', dependencies);
 //Require all the Config, Run, Controllers, Services and Directives of the app.
 require('./page1.config.js');
 require('./page1.partials.js');
-//Require the header and footer controllers
+//Require the header and footer controllers,directives and services.
 require('./core/header/script/controllers/headerController.js');
 require('./core/footer/script/controllers/footerController.js');
-//Require the view controllers
+//Require the view controllers,directives and services.
 require('./views/home/script/controllers/homeController.js');
 require('./views/about/script/controllers/aboutController.js');
 require('./views/watch/script/controllers/watchController.js');
+//Require the global view controllers,directives and services.
+require('./../../global/views/login/script/controllers/loginController.js');

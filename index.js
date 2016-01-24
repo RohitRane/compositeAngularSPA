@@ -2,7 +2,7 @@ var express = require('express');
 var config = require('./config');
 var app = express();
 
-app.projectDir = __dirname;
+GLOBAL.projectDir = __dirname;
 
 require('./app/server/routes.js')(app);
 
