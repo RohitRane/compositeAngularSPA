@@ -9,7 +9,7 @@ var gulp = require('gulp'),
 //Styles Watch
 gulp.task('styles:watch', ['styles-tasks'], function() {
     //gulp.watch('sass/*.scss', ['styles-tasks']);
-    gulp.watch('app/client/pages/**/*.scss', ['styles-tasks']);
+    gulp.watch(['app/client/pages/**/*.scss','app/client/global/views/**/*.scss'], ['styles-tasks']);
 });
 
 /*Styles Tasks*/

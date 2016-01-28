@@ -1,3 +1,5 @@
+"use strict";
+
 var gulp = require('gulp'),
     rename = require('gulp-rename'),
     uglify = require('gulp-uglify'),
@@ -17,9 +19,9 @@ gulp.task('js:watch', ['js-tasks', 'browserify', 'minify-angular', 'gen-template
     var server = livereload();
     gulp.watch('js/*.js', ['js-tasks']);
     gulp.watch(config.publicRoot + '/dist/js/angularApps/*.js');
-    gulp.watch(['app/client/pages/**/*.js','app/client/global/**/*.js'], ['browserify']);
+    gulp.watch('app/client/pages/**/*.js', ['browserify']);
     //gulp.watch('app/client/pages/page1/views/about/markup/about.html', ['gen-templateCache']);
-    gulp.watch(['app/client/pages/**/views/**/markup/*.html', 'app/client/pages/**/core/**/markup/*.html','app/client/global/views/**/markup/*.html'], ['gen-templateCache']);
+    gulp.watch(['app/client/pages/**/views/**/markup/*.html', 'app/client/pages/**/core/**/markup/*.html'], ['gen-templateCache']);
     //gulp.watch('app/client/pages/**/*.js', ['browserify']);
 });
 
@@ -66,7 +68,7 @@ gulp.task('browserify', function(done) {
     });
 
     var tasks = verifiedFiles.map(function(entry) {
-        console.log("Entry :", entry);
+        //console.log("Entry :", entry);
         return browserify({
                 entries: [entry],
                 insertGlobals: true,
@@ -91,21 +93,17 @@ gulp.task('gen-templateCache', function(done) {
     var destination = '';
     var viewsPath = '';
     var pattern = 'app/client/pages/*';
-    var globalTemplatePattern = 'app/client/global';
 
     var files = glob.sync(pattern);
-
-    console.log(typeof(files));
-
     var tasks = files.map(function(page) {
-        console.log("Page :", page);
+        //console.log("Page :", page);
         var pageIndex = page.lastIndexOf('/');
         var pageName = page.substring(pageIndex+1);
-        return gulp.src([page+'/views/*/markup/*.html', page+'/core/*/markup/*.html',globalTemplatePattern+'/views/*/markup/*.html'])
+        return gulp.src([page+'/views/*/markup/*.html', page+'/core/*/markup/*.html'])
             .pipe(templateCache('partials.js', {
                 module: 'pageApp',
                 transformUrl: function(url) {
-                    console.log("\nURL :", url);
+                    //console.log("\nURL :", url);
                     var ind = url.lastIndexOf('\\');
                     //console.log("Index :",ind);
                     partialName = url.substring(ind + 1);
@@ -121,12 +119,12 @@ gulp.task('gen-templateCache', function(done) {
             }))
             .pipe(rename(
                 function(path) {
-                    console.log("Path Before :", path);
+                    //console.log("Path Before :", path);
                     path.dirname = pageName;
-                    console.log("page Name :",pageName);
+                    //console.log("page Name :",pageName);
                     path.basename = pageName;
                     path.extname = '.partials.js';
-                    console.log("Path After :", path);
+                    //console.log("Path After :", path);
                 }))
             .pipe(beautify({
                 indentSize: 4

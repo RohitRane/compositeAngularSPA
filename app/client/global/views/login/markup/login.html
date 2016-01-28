@@ -1,14 +1,25 @@
-<form ng-submit="login()">
-    <div>
-        <label>Username:</label>
-        <input type="text" name="username" ng-model="username"/>
-        <br/>
-    </div>
-    <div>
-        <label>Password:</label>
-        <input type="password" name="password" ng-model="password"/>
-    </div>
-    <div>
-        <input type="submit" value="Submit" />
-    </div>
-</form>
+<div class="loginBox">
+    <h2 class="text-center">Login</h2>
+    <form ng-submit="login()">
+        <div class=" row label-textbox-container form-row">
+            <div class="col-md-6">
+                <label class="pull-right">Username</label>
+            </div>
+            <div class="col-md-6">
+                <input class="pull-left" type="text" name="username" ng-model="username" />
+            </div>
+            <!-- <br/> -->
+        </div>
+        <div class="row label-textbox-container form-row">
+            <div class="col-md-6">
+                <label class="pull-right">Password</label>
+            </div>
+            <div class="col-md-6">
+                <input class="pull-left" type="password" name="password" ng-model="password" />
+            </div>
+        </div>
+        <div class="row text-center label-textbox-container form-row">
+            <input type="submit" value="Submit" />
+        </div>
+    </form>
+</div>
