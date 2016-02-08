@@ -1,18 +1,4 @@
-.loginBox{
-	box-shadow: 10px 10px 5px #888888;
-	margin:auto;
-	width:100%;
-	border:1px solid black;
-}
 
-.label-textbox-container{
-	margin:auto;
-}
-
-.form-row{
-	margin-top:10px;
-	margin-bottom:10px;
-}
 
 /*Media Queries*/
 
@@ -42,11 +28,7 @@
 
 /* Medium Devices, Desktops */
 
-@media only screen and (min-width: 992px) {
-	.loginBox{
-		width:50%;
-	}
-}
+@media only screen and (min-width: 992px) {}
 
 
 /* Large Devices, Wide Screens */

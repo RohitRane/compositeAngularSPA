@@ -8,7 +8,7 @@ require("jshint-stylish");
 
 gulp.task('node-server', function() {
     nodemon({
-            script: 'appServer.js',
+            script: 'index.js',
             ext: 'html js',
             ignore: ['app/client/**/*.*', 'public/**/*.*'],
             tasks: ['lint']

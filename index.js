@@ -6,7 +6,7 @@ GLOBAL.projectDir = __dirname;
 
 require('./app/server/routes.js')(app);
 
-var server = app.listen(3000, function() {
+var server = app.listen(config.serverport, function() {
     var address = server.address();
     var host = server.address().address;
     var port = server.address().port;

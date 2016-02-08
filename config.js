@@ -1,5 +1,7 @@
 var config = {};
 
+config.serverport = 4000;
+
 config.publicRoot = './public';
 
 //config.domainRoot = '/app/client/pages/page1';

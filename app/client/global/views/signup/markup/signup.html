@@ -1,0 +1,33 @@
+<div class="loginBox">
+    <h2 class="text-center">Signup</h2>
+    <form ng-submit="signup()">
+        <div class=" row label-textbox-container form-row">
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <label class="pull-right" for="username">Username</label>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <input class="pull-left" type="text" name="username" ng-model="username" />
+            </div>
+            <!-- <br/> -->
+        </div>
+        <div class="row label-textbox-container form-row">
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <label class="pull-right" for="password1">Enter Password</label>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <input class="pull-left" type="password" name="password1" ng-model="password1" />
+            </div>
+        </div>
+         <div class="row label-textbox-container form-row">
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <label class="pull-right" for="password2">Verify Password</label>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <input class="pull-left" type="password" name="password2" ng-model="password2" />
+            </div>
+        </div>
+        <div class="row text-center label-textbox-container form-row">
+            <input class="btn primary-btn" type="submit" value="Signup" />
+        </div>
+    </form>
+</div>

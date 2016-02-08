@@ -1,3 +1,4 @@
+
 @media (min-width: 768px) {
     .navbar {
         border-radius: 0px;
@@ -6,5 +7,5 @@
 }
 
 .navbar-inverse{
-	background-color:green
+	background-color:$primary-color
 }

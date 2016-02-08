@@ -37,6 +37,9 @@ module.exports = function(app) {
     });
 
     //Define your API routes here.
+    /*login*/
     app.post('/login', Controllers.userDetailController.validateLocalUser);
+    /*signup*/
+    app.post('/signup', Controllers.userDetailController.registerLocalUser);
 
 }

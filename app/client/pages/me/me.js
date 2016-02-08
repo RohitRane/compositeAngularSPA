@@ -23,3 +23,4 @@ require('./views/about/script/controllers/aboutController.js');
 require('./views/watch/script/controllers/watchController.js');
 //Require the global view controllers,directives and services.
 require('./../../global/views/login/script/controllers/loginController.js');
+require('./../../global/views/signup/script/controllers/signupController.js');

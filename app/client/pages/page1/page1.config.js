@@ -75,4 +75,15 @@ function AppConfig($stateProvider, $urlRouterProvider) {
         }
     });
 
+    //Signup View
+    $stateProvider.state('root.signup', {
+        url: '/signup',
+        views: {
+            'content': {
+                templateUrl: 'signup.html',
+                controller: 'signupController'
+            }
+        }
+    });
+
 }
